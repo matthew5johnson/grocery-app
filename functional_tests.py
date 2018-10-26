@@ -40,7 +40,9 @@ class NewVisitorTest(unittest.TestCase):
 
 		table = self.browser.find_element_by_id('id_list_table')
 		rows = table.find_elements_by_tag_name('tr')
-		self.assertTrue(any(row.text == '1: Buy chicken' for row in rows))
+		self.assertTrue(any(row.text == '1: Buy chicken' for row in rows),
+			"New to-do item did not appear in the table"
+			)
 
 		# There is still a text box for input. Type "buy pb"
 		self.fail('Finish the test!')
