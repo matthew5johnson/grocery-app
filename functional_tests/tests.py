@@ -64,7 +64,7 @@ class NewVisitorTest(unittest.TestCase):
 		self.check_for_row_in_list_table('2: Use peacock feather to make a fly')
 
 		# Unique url is generated so that this list is remembered
-		# self.fail('Finish the test!')
+		self.fail('Finish the test!')
 
 
 # Only runs unittest when this .py program is run from terminal
