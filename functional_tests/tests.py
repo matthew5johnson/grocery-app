@@ -1,4 +1,5 @@
-from django.test import LiveServerTestCase
+# from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
@@ -12,7 +13,7 @@ MAX_WAIT = 10
 
 # assert 'To-Do' in browser.title
 
-class NewVisitorTest(LiveServerTestCase):  # unittest.TestCase
+class NewVisitorTest(StaticLiveServerTestCase): # LiveServerTestCase # unittest.TestCase
 
 	def setUp(self):
 		self.browser = webdriver.Firefox(keep_alive=False)
