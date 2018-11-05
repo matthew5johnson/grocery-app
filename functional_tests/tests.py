@@ -6,6 +6,8 @@ import time
 import unittest
 from selenium.common.exceptions import WebDriverException
 
+import os
+
 MAX_WAIT = 10
 
 # browser = webdriver.Firefox(keep_alive=False)
@@ -17,6 +19,10 @@ class NewVisitorTest(StaticLiveServerTestCase): # LiveServerTestCase # unittest.
 
 	def setUp(self):
 		self.browser = webdriver.Firefox(keep_alive=False)
+		# Change the test server that the django LiveServerTestCase is using. Now we control the server w/ the env variable
+		staging_server = os.environ.get('STAGING_SERVER')
+		if staging_server:
+			self.live_server_url = 'http://' + staging_server
 
 	def tearDown(self):
 		self.browser.quit()
